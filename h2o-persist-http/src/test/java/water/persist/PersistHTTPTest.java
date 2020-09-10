@@ -37,7 +37,7 @@ public class PersistHTTPTest extends TestUtil {
 
       PersistHTTP p = new PersistHTTP();
 
-      assertEquals(-1L, p.checkRangeSupport(URI.create(localUrl))); // H2O doesn't support byte-ranges
+      assertEquals(-1L, p.useLazyLoad(URI.create(localUrl))); // H2O doesn't support byte-ranges
 
       ArrayList<String> files = new ArrayList<>();
       ArrayList<String> keys = new ArrayList<>();
@@ -76,7 +76,7 @@ public class PersistHTTPTest extends TestUtil {
 
       PersistHTTP p = new PersistHTTP();
 
-      assertEquals(expectedSize, p.checkRangeSupport(URI.create(remoteUrl))); // S3 supports byte-ranges
+      assertEquals(expectedSize, p.useLazyLoad(URI.create(remoteUrl))); // S3 supports byte-ranges
 
       ArrayList<String> files = new ArrayList<>();
       ArrayList<String> keys = new ArrayList<>();

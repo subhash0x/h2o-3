@@ -4,6 +4,7 @@ import jsr166y.CountedCompleter;
 import jsr166y.ForkJoinPool;
 import water.fvec.*;
 import water.util.DistributedException;
+import water.util.Log;
 import water.util.PrettyPrint;
 import water.fvec.Vec.VectorGroup;
 
@@ -633,6 +634,7 @@ public abstract class MRTask<T extends MRTask<T>> extends DTask<T> implements Fo
           if( vecs[i] != null ) {
             assert _run_local || vecs[i].chunkKey(_lo).home()
               : "Chunk="+_lo+" v0="+v0+", k="+v0.chunkKey(_lo)+"   v["+i+"]="+vecs[i]+", k="+vecs[i].chunkKey(_lo);
+            Log.debug("Chunk="+_lo+" v0="+v0+", k="+v0.chunkKey(_lo)+"   v["+i+"]="+vecs[i]+", k="+vecs[i].chunkKey(_lo));
             bvs[i] = vecs[i].chunkForChunkIdx(_lo);
           }
 
